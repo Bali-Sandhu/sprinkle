@@ -36,14 +36,14 @@ def step_welcome_message_displayed(context):
 
 
 @when(u'I submit the Login form without credential')
-def blank_submit(context):
+def step_submit_blank_form(context):
     context.browser.get('https://sprinkle-burn.glitch.me/')
     email.send_keys('')
     password.send_keys('')
     login.click()
     blank_error_message = context.browser.find_by_id('login-error-box')
     print blank_error_message
-
+    email.clear()
 
 @then(u'the user is presented with an error message')
 def blank_error(context):
